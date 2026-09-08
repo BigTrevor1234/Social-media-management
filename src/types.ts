@@ -60,3 +60,20 @@ export interface Certification {
   status: 'Completed' | 'In Progress';
   year?: string;
 }
+
+export interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+  category?: string;
+}
+
+export interface ScopeQuestion {
+  id: string;
+  question: string;
+  options: {
+    label: string;
+    description: string;
+    recommendedServiceId: string;
+  }[];
+}

@@ -9,11 +9,15 @@ import { WorkSamplesGallery } from './components/WorkSamplesGallery';
 import { FrameworksSection } from './components/FrameworksSection';
 import { ToolsSection } from './components/ToolsSection';
 import { CertificationsSection } from './components/CertificationsSection';
+import { FAQSection } from './components/FAQSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { CapabilitiesDeckModal } from './components/CapabilitiesDeckModal';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>('hero');
+  const [isDeckOpen, setIsDeckOpen] = useState<boolean>(false);
+  const [selectedService, setSelectedService] = useState<string>('');
 
   useEffect(() => {
     const sections = [
@@ -26,6 +30,7 @@ export default function App() {
       'frameworks',
       'tools',
       'certifications',
+      'faq',
       'contact',
     ];
 
@@ -52,20 +57,27 @@ export default function App() {
 
       {/* Main Single Page Sections */}
       <main id="main-content">
-        <Hero />
+        <Hero onOpenDeck={() => setIsDeckOpen(true)} />
         <AboutSection />
         <OutcomesSection />
-        <ServicesSection />
+        <ServicesSection onSelectService={(serviceTitle) => setSelectedService(serviceTitle)} />
         <ProcessSection />
         <WorkSamplesGallery />
         <FrameworksSection />
         <ToolsSection />
         <CertificationsSection />
-        <ContactSection />
+        <FAQSection />
+        <ContactSection selectedService={selectedService} />
       </main>
 
       {/* Footer */}
       <Footer />
+
+      {/* Executive 1-Page Capabilities Deck Modal */}
+      <CapabilitiesDeckModal
+        isOpen={isDeckOpen}
+        onClose={() => setIsDeckOpen(false)}
+      />
     </div>
   );
 }

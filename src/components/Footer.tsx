@@ -34,6 +34,7 @@ export const Footer: React.FC = () => {
             <a href="#work" className="hover:text-white transition-colors">Work Samples</a>
             <a href="#frameworks" className="hover:text-white transition-colors">Frameworks</a>
             <a href="#tools" className="hover:text-white transition-colors">Stack</a>
+            <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
             <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </div>
 

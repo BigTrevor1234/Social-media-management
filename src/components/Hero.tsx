@@ -1,9 +1,13 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowUpRight, CheckCircle2, ChevronDown, Sparkles } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, ChevronDown, Sparkles, FileText, Clock } from 'lucide-react';
 import { personalInfo, heroData } from '../data/portfolioData';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onOpenDeck?: () => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onOpenDeck }) => {
   return (
     <section
       id="hero"
@@ -20,14 +24,19 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-4xl mx-auto text-center"
         >
-          {/* Availability Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-100 border border-stone-200/80 mb-6 shadow-2xs">
+          {/* Availability & Response Time Live Badge */}
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 border border-stone-200/80 mb-6 shadow-2xs">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             <span className="text-[12px] font-medium text-stone-700 font-sans-refined">
               {personalInfo.availabilityStatus}
+            </span>
+            <span className="text-stone-300 hidden sm:inline">|</span>
+            <span className="text-[11px] font-medium text-stone-500 hidden sm:flex items-center gap-1 font-sans-refined">
+              <Clock className="w-3 h-3 text-[#c86d51]" />
+              <span>Response: {personalInfo.responseTime}</span>
             </span>
           </div>
 
@@ -54,7 +63,7 @@ export const Hero: React.FC = () => {
             <a
               href="#contact"
               id="hero-primary-cta"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-semibold bg-stone-900 text-white hover:bg-[#c86d51] transition-all duration-200 shadow-sm group"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-semibold bg-stone-900 text-white hover:bg-[#c86d51] transition-all duration-200 shadow-sm group cursor-pointer"
             >
               <span>{personalInfo.ctaText}</span>
               <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -63,11 +72,22 @@ export const Hero: React.FC = () => {
             <a
               href="#work"
               id="hero-secondary-cta"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-medium bg-white text-stone-700 border border-stone-200 hover:border-stone-300 hover:bg-stone-50 transition-colors duration-200 shadow-2xs"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-medium bg-white text-stone-700 border border-stone-200 hover:border-stone-300 hover:bg-stone-50 transition-colors duration-200 shadow-2xs cursor-pointer"
             >
-              <span>Explore Case Studies & Data</span>
+              <span>Explore Case Studies</span>
               <ChevronDown className="w-4 h-4 text-stone-400" />
             </a>
+
+            {onOpenDeck && (
+              <button
+                onClick={onOpenDeck}
+                id="hero-deck-cta"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-sm font-medium bg-[#fafaf8] text-stone-700 border border-dashed border-stone-300 hover:border-stone-400 hover:bg-stone-100 transition-colors duration-200 shadow-2xs cursor-pointer"
+              >
+                <FileText className="w-4 h-4 text-[#c86d51]" />
+                <span>Executive 1-Pager</span>
+              </button>
+            )}
           </div>
 
           {/* Quick Capability Highlights (Exact items from prompt) */}

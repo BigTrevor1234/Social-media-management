@@ -1,4 +1,4 @@
-import { WorkSample, Service, ProcessStep, Outcome, StrategicFramework, ToolCategory, Certification } from '../types';
+import { WorkSample, Service, ProcessStep, Outcome, StrategicFramework, ToolCategory, Certification, FAQItem, ScopeQuestion } from '../types';
 
 export const personalInfo = {
   name: "Sheriff Opatola",
@@ -13,6 +13,9 @@ export const personalInfo = {
   ctaText: "Work With Me",
   availabilityStatus: "Currently available & open to select brand partnerships",
   availabilityNote: "Taking on 2 new brand partners for consistent content strategy & management.",
+  timezone: "GMT+1 (WAT / European-friendly)",
+  responseTime: "< 2 hours on business days",
+  workingHours: "Mon – Fri · 9:00 AM – 6:00 PM GMT+1",
   copyrightYear: "2026",
   footerTagline: "Strategy, consistency, and automated systems for modern brands.",
 };
@@ -39,8 +42,8 @@ export const aboutData = {
   subheading: "About Sheriff Opatola",
   intro: "Turning social feeds into memorable brand assets.",
   paragraphs: [
-    "I'm a freelance social media manager and content strategist working primarily with skincare and beauty founders, and e-commerce brands looking to turn their online presence into something people actually remember, not just another feed to scroll past.",
-    "My approach sits at the intersection of content strategy, audience psychology, and personal branding. I don't just plan what to post, I dig into who your audience is, what actually makes them stop scrolling, and how to translate that into a voice that feels unmistakably yours across every platform. For beauty and skincare brands especially, that means understanding the difference between content that just looks nice and content that builds real trust in a crowded, skeptical market.",
+    "I'm a freelance social media manager and content strategist working with founders and brand owners who want their online presence to turn into something people actually remember, not just another feed to scroll past. My background includes working closely with skincare and beauty founders, which sharpened my eye for building trust and credibility in highly visual, competitive markets.",
+    "My approach sits at the intersection of content strategy, audience psychology, and personal branding. I don't just plan what to post, I dig into who your audience is, what actually makes them stop scrolling, and how to translate that into a voice that feels unmistakably yours across every platform. Whether it's a product-based brand or a personal name people are learning to trust, that means understanding the difference between content that just looks nice and content that actually builds credibility in a crowded, skeptical market.",
     "If you're a founder who's tired of posting into the void and wants a presence that's strategic, consistent, and genuinely you, that's where I come in."
   ],
   coreCompetencies: [
@@ -564,5 +567,62 @@ export const certificationsData: Certification[] = [
     issuer: "Software & Web Development",
     status: "Completed",
     year: "Verified Credential"
+  }
+];
+
+export const faqData: FAQItem[] = [
+  {
+    id: "faq-1",
+    question: "How does the initial onboarding process work?",
+    answer: "We begin with a 30-minute discovery call to align on your brand voice, growth objectives, and target channels. From there, you gain access to a dedicated web-based onboarding portal to share brand guidelines, visual assets, and credentials. Within 5–7 business days, your customized Notion content hub, 30-day roadmap, and approval workflows are live."
+  },
+  {
+    id: "faq-2",
+    question: "Do you create the visuals and captions, or work with our raw brand assets?",
+    answer: "Both. If you provide product photography, UGC clips, or brand footage, I curate and transform them into engaging carousels and short-form video reels (using Canva and CapCut). I write all hooks, educational body copy, and conversion calls-to-action tailored to your audience's psychology."
+  },
+  {
+    id: "faq-3",
+    question: "How much time do I need to commit each month as a founder?",
+    answer: "Less than 60–90 minutes per month once onboarded. You review the planned monthly batch in Notion with 1-click approvals or feedback notes. My role as both your strategist and technical virtual assistant is to give you complete operational relief from social media stress."
+  },
+  {
+    id: "faq-4",
+    question: "Which platforms do you specialize in?",
+    answer: "My core expertise is Instagram, TikTok, LinkedIn, and X (Twitter), along with Facebook page management. Each platform receives native content tailored to its specific audience behavior and algorithms rather than generic cross-posting."
+  },
+  {
+    id: "faq-5",
+    question: "What tools and software access do you require?",
+    answer: "Typically just your native social platform accounts (via Meta Business Suite, LinkedIn admin access, etc.) or preferred scheduling tools. I build and maintain the Notion content hub, Airtable asset trackers, and Zapier notification pipelines for you."
+  }
+];
+
+export const scopeQuestionsData: ScopeQuestion[] = [
+  {
+    id: "q1",
+    question: "Where is your brand currently at?",
+    options: [
+      {
+        label: "Established brand seeking full management",
+        description: "Looking to hand off day-to-day creation, scheduling, and community engagement completely.",
+        recommendedServiceId: "service-1"
+      },
+      {
+        label: "Growing brand needing a fresh strategy sprint",
+        description: "Need clear audience positioning, content pillars, and a 30-day roadmap our team can execute.",
+        recommendedServiceId: "service-2"
+      },
+      {
+        label: "Active brand struggling with chaotic workflows",
+        description: "Need automated Notion pipelines, Airtable trackers, and Zapier notifications to streamline operations.",
+        recommendedServiceId: "service-3"
+      },
+      {
+        label: "Brand needing an objective audit & action plan",
+        description: "Need an expert review of current performance metrics with prioritized recommendations to fix leaks.",
+        recommendedServiceId: "service-4"
+      }
+    ]
   }
 ];

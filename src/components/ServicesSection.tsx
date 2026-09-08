@@ -1,13 +1,24 @@
 import React from 'react';
 import { ArrowUpRight, Check } from 'lucide-react';
 import { servicesData, personalInfo } from '../data/portfolioData';
+import { ServiceFinder } from './ServiceFinder';
 
-export const ServicesSection: React.FC = () => {
+interface ServicesSectionProps {
+  onSelectService?: (serviceTitle: string) => void;
+}
+
+export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectService }) => {
+  const handleInquireClick = (serviceTitle: string) => {
+    if (onSelectService) {
+      onSelectService(serviceTitle);
+    }
+  };
+
   return (
     <section id="services" className="py-24 bg-white border-t border-stone-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-widest text-[#c86d51] mb-2 block font-sans-refined">
               Tailored Offerings
@@ -28,6 +39,9 @@ export const ServicesSection: React.FC = () => {
             <ArrowUpRight className="w-4 h-4" />
           </a>
         </div>
+
+        {/* Interactive Scope Advisor */}
+        <ServiceFinder onSelectService={onSelectService} />
 
         {/* 4 Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -78,7 +92,8 @@ export const ServicesSection: React.FC = () => {
                 </div>
                 <a
                   href="#contact"
-                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold bg-stone-900 text-white hover:bg-[#c86d51] transition-colors shadow-2xs"
+                  onClick={() => handleInquireClick(service.title)}
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold bg-stone-900 text-white hover:bg-[#c86d51] transition-colors shadow-2xs cursor-pointer"
                 >
                   <span>Inquire About This Service</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
