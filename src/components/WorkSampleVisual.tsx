@@ -1,6 +1,49 @@
 import React, { useState } from 'react';
 import { WorkSample } from '../types';
-import { TrendingUp, Users, Eye, Sparkles, MessageCircle, Heart, Share2, Bookmark, BarChart2, Calendar, FileText, CheckCircle2 } from 'lucide-react';
+import { 
+  TrendingUp, Users, Eye, Sparkles, MessageCircle, Heart, Share2, 
+  Bookmark, BarChart2, Calendar, FileText, CheckCircle2, Search, 
+  GitBranch, ArrowRight, Table, Layers, Clock, Cpu, Filter
+} from 'lucide-react';
+
+// Reusable Browser / Desktop Window Chrome Frame for Live Workspaces
+const WindowChrome: React.FC<{
+  url: string;
+  theme?: 'dark' | 'light';
+  statusText?: string;
+}> = ({ url, theme = 'dark', statusText = 'AUTHENTIC WORKSPACE' }) => (
+  <div
+    className={`flex items-center justify-between px-3 py-2 border-b text-[10px] select-none ${
+      theme === 'dark'
+        ? 'bg-[#15161c] border-stone-800/90 text-stone-400'
+        : 'bg-stone-100 border-stone-200/90 text-stone-500'
+    }`}
+  >
+    <div className="flex items-center gap-1.5 shrink-0">
+      <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57] inline-block shadow-2xs" />
+      <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e] inline-block shadow-2xs" />
+      <span className="w-2.5 h-2.5 rounded-full bg-[#28c840] inline-block shadow-2xs" />
+    </div>
+
+    <div
+      className={`flex items-center gap-1.5 px-3 py-0.5 rounded-md border font-mono text-[9px] max-w-[210px] sm:max-w-[340px] truncate shadow-2xs ${
+        theme === 'dark'
+          ? 'bg-black/50 border-stone-800 text-stone-300'
+          : 'bg-white border-stone-200 text-stone-700'
+      }`}
+    >
+      <span className="text-emerald-500 text-[10px]">🔒</span>
+      <span className="truncate">{url}</span>
+    </div>
+
+    <div className="flex items-center gap-1.5 shrink-0">
+      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+      <span className="font-mono text-[9px] font-semibold hidden sm:inline tracking-wider">
+        {statusText}
+      </span>
+    </div>
+  </div>
+);
 
 interface WorkSampleVisualProps {
   sample: WorkSample;
@@ -33,6 +76,502 @@ export const WorkSampleVisual: React.FC<WorkSampleVisualProps> = ({ sample, isMo
 
   // High-fidelity graphic representation corresponding to the exact screenshot data
   switch (sample.id) {
+    case 'asana-workspace':
+      return (
+        <div className="w-full rounded-xl border border-stone-800 font-sans shadow-md flex flex-col justify-between h-full overflow-hidden text-xs bg-[#1e1f25] text-stone-100">
+          <WindowChrome
+            url="app.asana.com/1/1214758663186972/project/GlowSkincare"
+            theme="dark"
+            statusText="LIVE CLIENT SPRINT"
+          />
+          <div className={`${isModal ? 'p-5' : 'p-4'} flex flex-col justify-between flex-1`}>
+            <div>
+            {/* Asana Header */}
+            <div className="flex items-center justify-between pb-3 border-b border-stone-800/90">
+              <div className="flex items-center gap-2.5">
+                <div className="w-6 h-6 rounded-lg bg-[#fc5275] flex items-center justify-center text-white font-bold text-[10px] shadow-xs">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-white text-xs sm:text-sm tracking-tight">GlowSkincare</span>
+                    <span className="inline-flex items-center gap-1 text-[10px] bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 px-2 py-0.5 rounded-full font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      On track
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-stone-400">Sheriff Opatola's Workspace · Asana Projects</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <div className="flex items-center -space-x-1.5">
+                  <div className="w-6 h-6 rounded-full bg-pink-600 text-white font-bold text-[9px] flex items-center justify-center border border-[#1e1f25]" title="Sheriff Opatola">
+                    SO
+                  </div>
+                  <div className="w-6 h-6 rounded-full bg-amber-600 text-white font-bold text-[9px] flex items-center justify-center border border-[#1e1f25]" title="sheriff08068...">
+                    sh
+                  </div>
+                </div>
+                <span className="text-[10px] bg-stone-800 text-stone-300 px-2 py-1 rounded hidden sm:inline border border-stone-700">Customize</span>
+              </div>
+            </div>
+
+            {/* Asana Tabs */}
+            <div className="flex items-center gap-4 py-2 border-b border-stone-800/60 text-[11px] text-stone-400 overflow-x-auto no-scrollbar">
+              <span className="hover:text-stone-200 cursor-pointer">Overview</span>
+              <span className="text-white font-semibold border-b-2 border-[#fc5275] pb-1 cursor-pointer">List</span>
+              <span className="hover:text-stone-200 cursor-pointer">Board</span>
+              <span className="hover:text-stone-200 cursor-pointer">Timeline</span>
+              <span className="hover:text-stone-200 cursor-pointer">Dashboard</span>
+              <span className="hover:text-stone-200 cursor-pointer">Calendar</span>
+            </div>
+
+            {/* Task Table Section Header */}
+            <div className="mt-3 flex items-center justify-between text-[11px] text-stone-400 font-semibold uppercase tracking-wider px-1">
+              <span>To do (6 items)</span>
+              <span className="text-[10px] text-stone-500 font-normal">Sprint May 13 – 19</span>
+            </div>
+
+            {/* Task Rows matching Asana screenshot */}
+            <div className="mt-2 space-y-1.5">
+              {/* Row 1 */}
+              <div className="flex items-center justify-between p-2 rounded-lg bg-stone-900/60 border border-stone-800/80 hover:bg-stone-800/50 transition-colors">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                  <div className="w-4 h-4 rounded border border-stone-600 flex items-center justify-center shrink-0" />
+                  <span className="text-stone-200 font-medium truncate text-[11px]">Schedule weekly business meeting</span>
+                </div>
+                <div className="flex items-center gap-3 shrink-0 text-[10px]">
+                  <span className="inline-flex items-center gap-1 text-pink-400 font-medium bg-pink-950/40 px-1.5 py-0.5 rounded border border-pink-900/40">
+                    <span className="w-3.5 h-3.5 rounded-full bg-pink-600 text-[8px] text-white flex items-center justify-center">SO</span>
+                    Sheriff Opatola
+                  </span>
+                  <span className="text-stone-500 hidden sm:inline">May 12</span>
+                </div>
+              </div>
+
+              {/* Row 2 */}
+              <div className="flex items-center justify-between p-2 rounded-lg bg-stone-900/60 border border-stone-800/80 hover:bg-stone-800/50 transition-colors">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                  <div className="w-4 h-4 rounded bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 shrink-0">
+                    ✓
+                  </div>
+                  <span className="text-stone-200 font-medium truncate text-[11px]">Reply to customer Instagram DMs</span>
+                </div>
+                <div className="flex items-center gap-3 shrink-0 text-[10px]">
+                  <span className="inline-flex items-center gap-1 text-pink-400 font-medium bg-pink-950/40 px-1.5 py-0.5 rounded border border-pink-900/40">
+                    <span className="w-3.5 h-3.5 rounded-full bg-pink-600 text-[8px] text-white flex items-center justify-center">SO</span>
+                    Sheriff Opatola
+                  </span>
+                  <span className="px-1.5 py-0.5 rounded bg-emerald-950/80 text-emerald-400 font-medium border border-emerald-800/40">
+                    Completed
+                  </span>
+                </div>
+              </div>
+
+              {/* Row 3 */}
+              <div className="flex items-center justify-between p-2 rounded-lg bg-stone-900/60 border border-stone-800/80 hover:bg-stone-800/50 transition-colors">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                  <div className="w-4 h-4 rounded border border-stone-600 flex items-center justify-center shrink-0" />
+                  <span className="text-stone-200 font-medium truncate text-[11px]">Research skincare competitors</span>
+                </div>
+                <div className="flex items-center gap-3 shrink-0 text-[10px]">
+                  <span className="inline-flex items-center gap-1 text-pink-400 font-medium bg-pink-950/40 px-1.5 py-0.5 rounded border border-pink-900/40">
+                    <span className="w-3.5 h-3.5 rounded-full bg-pink-600 text-[8px] text-white flex items-center justify-center">SO</span>
+                    Sheriff Opatola
+                  </span>
+                  <span className="text-stone-400 hidden sm:inline">In Progress</span>
+                </div>
+              </div>
+
+              {/* Row 4 */}
+              <div className="flex items-center justify-between p-2 rounded-lg bg-stone-900/60 border border-stone-800/80 hover:bg-stone-800/50 transition-colors">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                  <div className="w-4 h-4 rounded bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 shrink-0">
+                    ✓
+                  </div>
+                  <span className="text-stone-200 font-medium truncate text-[11px]">Schedule 5 Instagram posts</span>
+                </div>
+                <div className="flex items-center gap-2 shrink-0 text-[10px]">
+                  <span className="text-stone-400 hidden sm:inline">May 13 – 15</span>
+                  <span className="px-1.5 py-0.5 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-800/50 font-medium">Low</span>
+                  <span className="px-1.5 py-0.5 rounded bg-blue-950/80 text-blue-400 border border-blue-800/50 font-medium">On track</span>
+                </div>
+              </div>
+
+              {/* Row 5 & 6 (Only in full view or modal) */}
+              {isModal && (
+                <>
+                  <div className="flex items-center justify-between p-2 rounded-lg bg-stone-900/60 border border-stone-800/80 hover:bg-stone-800/50 transition-colors">
+                    <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                      <div className="w-4 h-4 rounded bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 shrink-0">
+                        ✓
+                      </div>
+                      <span className="text-stone-200 font-medium truncate text-[11px]">Organize business emails</span>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0 text-[10px]">
+                      <span className="text-stone-400 hidden sm:inline">May 14 – 18</span>
+                      <span className="px-1.5 py-0.5 rounded bg-amber-950/80 text-amber-400 border border-amber-800/50 font-medium">Medium</span>
+                      <span className="px-1.5 py-0.5 rounded bg-amber-950/80 text-amber-300 border border-amber-800/50 font-medium">At risk</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between p-2 rounded-lg bg-stone-900/60 border border-stone-800/80 hover:bg-stone-800/50 transition-colors">
+                    <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                      <div className="w-4 h-4 rounded bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 shrink-0">
+                        ✓
+                      </div>
+                      <span className="text-stone-200 font-medium truncate text-[11px]">Update product stock sheet</span>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0 text-[10px]">
+                      <span className="text-stone-400 hidden sm:inline">May 15 – 19</span>
+                      <span className="px-1.5 py-0.5 rounded bg-rose-950/80 text-rose-400 border border-rose-800/50 font-medium">High</span>
+                      <span className="px-1.5 py-0.5 rounded bg-rose-950/80 text-rose-300 border border-rose-800/50 font-medium">Off track</span>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+
+          <div className="pt-3 border-t border-stone-800 flex items-center justify-between text-[10px] text-stone-400">
+            <span className="font-mono text-stone-500">app.asana.com/GlowSkincare</span>
+            <span className="text-emerald-400 font-medium">Verified Asana Client Workspace</span>
+          </div>
+        </div>
+      </div>
+    );
+
+    case 'airtable-outreach':
+      return (
+        <div className="w-full rounded-xl border border-stone-200 font-sans shadow-md flex flex-col justify-between h-full overflow-hidden text-xs bg-white text-stone-900">
+          <WindowChrome
+            url="airtable.com/appNhlSpo3lfcEqVd/tblOutreachCRM/viwGrid"
+            theme="light"
+            statusText="195 LEADS VERIFIED"
+          />
+          <div className={`${isModal ? 'p-5' : 'p-4'} flex flex-col justify-between flex-1`}>
+            <div>
+            {/* Airtable Top Header */}
+            <div className="flex items-center justify-between pb-2.5 border-b border-stone-200">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-md bg-[#20c997] flex items-center justify-center text-white font-bold text-[10px] shadow-2xs">
+                  <Table className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-stone-900 text-xs sm:text-sm">cold email outreach</span>
+                    <span className="text-[10px] text-stone-500 bg-stone-100 px-1.5 py-0.5 rounded">Base</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 text-[11px] text-stone-600 font-medium">
+                <span className="text-[#20c997] border-b-2 border-[#20c997] pb-1 font-semibold">Data</span>
+                <span className="hover:text-stone-900 cursor-pointer hidden sm:inline">Automations</span>
+                <span className="hover:text-stone-900 cursor-pointer hidden sm:inline">Interfaces</span>
+                <span className="hover:text-stone-900 cursor-pointer hidden sm:inline">Forms</span>
+              </div>
+            </div>
+
+            {/* Table Navigation Tabs */}
+            <div className="flex items-center gap-3 py-1.5 border-b border-stone-100 text-[11px] text-stone-600 overflow-x-auto no-scrollbar">
+              <span className="text-stone-500 hover:text-stone-800 px-2 py-0.5 rounded cursor-pointer">Leads</span>
+              <span className="text-stone-900 font-bold bg-stone-100 px-2 py-0.5 rounded cursor-pointer">Outreach Sequences</span>
+              <span className="text-stone-400 hover:text-stone-600 px-1 py-0.5">+ Add or import</span>
+            </div>
+
+            {/* View & Filter Toolbar */}
+            <div className="flex items-center justify-between py-1.5 border-b border-stone-100 text-[10px] text-stone-600">
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-stone-800 flex items-center gap-1">
+                  <Table className="w-3 h-3 text-[#20c997]" /> Grid view
+                </span>
+                <span className="text-stone-400">|</span>
+                <span className="hover:text-stone-900 cursor-pointer">Hide fields</span>
+                <span className="hover:text-stone-900 cursor-pointer">Filter</span>
+                <span className="hover:text-stone-900 cursor-pointer hidden sm:inline">Group</span>
+                <span className="hover:text-stone-900 cursor-pointer hidden sm:inline">Sort</span>
+              </div>
+              <span className="text-[#20c997] font-semibold">Share & Sync</span>
+            </div>
+
+            {/* Spreadsheet Table Grid matching screenshot */}
+            <div className="mt-2 border border-stone-200 rounded-lg overflow-hidden bg-white">
+              {/* Header Row */}
+              <div className="grid grid-cols-12 bg-stone-100 text-[10px] font-semibold text-stone-700 border-b border-stone-200 py-1 px-2">
+                <div className="col-span-1 text-stone-400 text-center">#</div>
+                <div className="col-span-2">Id</div>
+                <div className="col-span-3">Personalization Used</div>
+                <div className="col-span-4">Automated Email...</div>
+                <div className="col-span-2">Lead</div>
+              </div>
+
+              {/* Data Rows */}
+              {[
+                { row: 1, id: '1', personalization: 'Complimented eco-packaging', email: 'Sequence Step 1', lead: 'Founder @ CleanCo' },
+                { row: 2, id: '61', personalization: 'Referenced ingredient transparency', email: 'Sequence Step 2', lead: 'CEO @ PureGlow' },
+                { row: 3, id: '59', personalization: 'Highlighted TikTok routine clip', email: 'Sequence Step 1', lead: 'Brand Director @ Nova' },
+                { row: 4, id: '120', personalization: 'Noted rapid retail expansion', email: 'Sequence Step 3', lead: 'CMO @ HerbBotanics' },
+                { row: 5, id: '185', personalization: 'Discussed UGC conversion rate', email: 'Sequence Step 1', lead: 'Head of Growth @ Luster' },
+                { row: 6, id: '158', personalization: 'Custom brand audit reference', email: 'Sequence Step 2', lead: 'E-commerce Lead' },
+              ].map((item) => (
+                <div key={item.row} className="grid grid-cols-12 text-[10px] text-stone-800 border-b border-stone-100 py-1 px-2 hover:bg-stone-50 transition-colors items-center">
+                  <div className="col-span-1 text-stone-400 text-center font-mono text-[9px]">{item.row}</div>
+                  <div className="col-span-2 font-mono text-stone-900 font-medium">{item.id}</div>
+                  <div className="col-span-3 truncate text-stone-600">{item.personalization}</div>
+                  <div className="col-span-4 truncate">
+                    <span className="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[9px] font-medium">
+                      {item.email}
+                    </span>
+                  </div>
+                  <div className="col-span-2 truncate text-stone-500 font-mono text-[9px]">{item.lead}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="pt-2.5 border-t border-stone-200 flex items-center justify-between text-[10px] text-stone-500">
+            <span className="font-semibold text-stone-700">195 records · Sum 19,110</span>
+            <span className="text-[#20c997] font-medium">Verified Airtable Database Pipeline</span>
+          </div>
+        </div>
+      </div>
+    );
+
+    case 'zapier-workflow':
+      return (
+        <div className="w-full rounded-xl border border-stone-800 font-sans shadow-md flex flex-col justify-between h-full overflow-hidden text-xs bg-[#0f1117] text-stone-100">
+          <WindowChrome
+            url="app.n8n.cloud/workflow/Autonomous-Lead-Discovery-Engine"
+            theme="dark"
+            statusText="PIPELINE RUNNING"
+          />
+          <div className={`${isModal ? 'p-5' : 'p-4'} flex flex-col justify-between flex-1`}>
+            <div>
+            {/* Zapier / n8n Header */}
+            <div className="flex items-center justify-between pb-3 border-b border-stone-800">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-lg bg-orange-600 flex items-center justify-center text-white font-bold text-[10px] shadow-xs">
+                  <GitBranch className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-white text-xs sm:text-sm">Autonomous Lead Discovery Engine</span>
+                    <span className="text-[9px] bg-emerald-950 text-emerald-400 border border-emerald-800 px-1.5 py-0.2 rounded font-mono">Active</span>
+                  </div>
+                  <span className="text-[10px] text-stone-400">AI Workflow Automation Platform · Multi-Branch</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 text-[11px] text-stone-400">
+                <span className="text-orange-400 font-semibold border-b border-orange-400 pb-0.5">Editor</span>
+                <span className="hover:text-white cursor-pointer hidden sm:inline">Executions</span>
+                <span className="hover:text-white cursor-pointer hidden sm:inline">Evaluations</span>
+              </div>
+            </div>
+
+            {/* Interactive Visual Graph Canvas */}
+            <div className="my-3 p-3 bg-black/40 rounded-xl border border-stone-800/80 relative overflow-hidden">
+              <div className="flex flex-col gap-3">
+                {/* Stage 1: Trigger & Loops */}
+                <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+                  <div className="p-2 rounded-lg bg-stone-900 border border-orange-500/50 shadow-xs flex items-center gap-2 min-w-[140px]">
+                    <div className="w-5 h-5 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center">
+                      <Clock className="w-3 h-3" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-semibold text-white block">Schedule Trigger</span>
+                      <span className="text-[8px] text-stone-400">Every 24h at 08:00</span>
+                    </div>
+                  </div>
+
+                  <ArrowRight className="w-3.5 h-3.5 text-stone-600 shrink-0 hidden sm:block" />
+
+                  <div className="p-2 rounded-lg bg-stone-900 border border-sky-500/50 shadow-xs flex items-center gap-2 min-w-[130px]">
+                    <div className="w-5 h-5 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center">
+                      <Search className="w-3 h-3" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-semibold text-white block">Search records</span>
+                      <span className="text-[8px] text-stone-400">Filtered Target Leads</span>
+                    </div>
+                  </div>
+
+                  <ArrowRight className="w-3.5 h-3.5 text-stone-600 shrink-0 hidden sm:block" />
+
+                  <div className="p-2 rounded-lg bg-stone-900 border border-emerald-500/50 shadow-xs flex items-center gap-2 min-w-[130px]">
+                    <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                      <Cpu className="w-3 h-3" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-semibold text-white block">Loop Over Items</span>
+                      <span className="text-[8px] text-stone-400">Batch Iterator</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Stage 2: 3 Parallel API Branches */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 border-t border-stone-800/60">
+                  <div className="p-2 rounded-lg bg-stone-900/80 border border-stone-800 hover:border-emerald-500/50 transition-colors">
+                    <span className="text-[9px] text-emerald-400 font-mono block">Branch A · Apollo API</span>
+                    <span className="text-[10px] font-medium text-stone-200 truncate block">HTTP Request (Apollo)</span>
+                    <div className="flex items-center gap-1.5 mt-1 text-[8px] text-stone-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <span>Webhook Return (200 OK)</span>
+                    </div>
+                  </div>
+
+                  <div className="p-2 rounded-lg bg-stone-900/80 border border-stone-800 hover:border-emerald-500/50 transition-colors">
+                    <span className="text-[9px] text-sky-400 font-mono block">Branch B · Google Tools</span>
+                    <span className="text-[10px] font-medium text-stone-200 truncate block">HTTP Request (Google)</span>
+                    <div className="flex items-center gap-1.5 mt-1 text-[8px] text-stone-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
+                      <span>Data Normalization</span>
+                    </div>
+                  </div>
+
+                  <div className="p-2 rounded-lg bg-stone-900/80 border border-stone-800 hover:border-emerald-500/50 transition-colors">
+                    <span className="text-[9px] text-purple-400 font-mono block">Branch C · LinkedIn API</span>
+                    <span className="text-[10px] font-medium text-stone-200 truncate block">HTTP Request (LinkedIn)</span>
+                    <div className="flex items-center gap-1.5 mt-1 text-[8px] text-stone-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+                      <span>Enriched Profile Token</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Stage 3: Merge & Destination */}
+                <div className="flex items-center justify-between p-2 rounded-lg bg-emerald-950/30 border border-emerald-800/40 text-[10px]">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                    <span className="text-stone-200 font-medium">Destination: Create a record (Airtable & CRM Hub)</span>
+                  </div>
+                  <span className="text-emerald-400 font-mono font-semibold">Zero Manual Entry</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-stone-800 flex items-center justify-between text-[10px] text-stone-500">
+            <span className="font-mono text-stone-400">Multi-Node Automation Pipeline</span>
+            <span className="text-orange-400 font-medium">Verified Zapier / n8n Workflow</span>
+          </div>
+        </div>
+      </div>
+    );
+
+    case 'canva-brand-assets':
+      return (
+        <div className="w-full rounded-xl border border-stone-200 font-sans shadow-md flex flex-col justify-between h-full overflow-hidden text-xs bg-[#f6f7f9] text-stone-900">
+          <WindowChrome
+            url="canva.com/folder/olamiluxe-fabrics-luxury-branding"
+            theme="light"
+            statusText="BRAND ASSET REPO"
+          />
+          <div className={`${isModal ? 'p-5' : 'p-4'} flex flex-col justify-between flex-1`}>
+            <div>
+            {/* Canva Top Navigation Header */}
+            <div className="flex items-center justify-between pb-3 border-b border-stone-200">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white font-bold text-[11px] shadow-2xs">
+                  C
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-stone-900 text-xs sm:text-sm">Canva Projects · Brand Hub</span>
+                    <span className="text-[10px] bg-indigo-50 text-indigo-700 px-1.5 py-0.2 rounded border border-indigo-100 font-medium">Pro</span>
+                  </div>
+                  <span className="text-[10px] text-stone-500">Olamiluxe Fabrics · Visual Brand Identity Assets</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 text-[10px]">
+                <span className="px-2.5 py-1 rounded-md bg-indigo-600 text-white font-semibold shadow-2xs cursor-pointer">
+                  + Create Design
+                </span>
+              </div>
+            </div>
+
+            {/* Folder & Design Breadcrumbs */}
+            <div className="flex items-center gap-2 py-2 text-[11px] text-stone-500 border-b border-stone-100">
+              <span className="hover:text-stone-900 cursor-pointer">Projects</span>
+              <span>/</span>
+              <span className="hover:text-stone-900 cursor-pointer">Folders</span>
+              <span>/</span>
+              <span className="text-stone-900 font-semibold">Olamiluxe Fabrics (Premium Fabrics)</span>
+            </div>
+
+            {/* Visual Design Cards Carousel matching Canva screenshot */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 my-3">
+              {/* Card 1 */}
+              <div className="bg-white rounded-xl border border-stone-200 overflow-hidden hover:border-indigo-400 hover:shadow-sm transition-all group cursor-pointer">
+                <div className="h-28 bg-black p-3 flex flex-col items-center justify-center text-center text-white relative">
+                  <div className="w-6 h-6 rounded-full border border-white/60 flex items-center justify-center mb-1 text-[8px] font-mono">
+                    ✦
+                  </div>
+                  <span className="text-[11px] font-serif tracking-widest uppercase font-bold text-stone-100">
+                    Olamiluxe Fabrics
+                  </span>
+                  <span className="text-[7px] tracking-widest text-stone-400 uppercase mt-0.5">
+                    Premium Fabrics
+                  </span>
+                </div>
+                <div className="p-2 bg-white">
+                  <span className="text-[10px] font-semibold text-stone-900 truncate block group-hover:text-indigo-600">
+                    Black and White Elegant...
+                  </span>
+                  <span className="text-[9px] text-stone-500">Edited 8 months ago</span>
+                </div>
+              </div>
+
+              {/* Card 2 */}
+              <div className="bg-white rounded-xl border border-stone-200 overflow-hidden hover:border-indigo-400 hover:shadow-sm transition-all group cursor-pointer">
+                <div className="h-28 bg-stone-900 p-3 flex flex-col items-center justify-center text-center text-white relative border-b border-stone-800">
+                  <span className="text-[11px] font-sans tracking-wide uppercase font-semibold text-stone-100">
+                    Olamiluxe fabrics
+                  </span>
+                  <span className="text-[7px] tracking-widest text-stone-400 uppercase mt-1">
+                    PREMIUM FABRICS
+                  </span>
+                </div>
+                <div className="p-2 bg-white">
+                  <span className="text-[10px] font-semibold text-stone-900 truncate block group-hover:text-indigo-600">
+                    Minimalist Fabric Labels...
+                  </span>
+                  <span className="text-[9px] text-stone-500">Edited 9 months ago</span>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div className="bg-white rounded-xl border border-stone-200 overflow-hidden hover:border-indigo-400 hover:shadow-sm transition-all group cursor-pointer">
+                <div className="h-28 bg-[#161616] p-3 flex flex-col items-center justify-center text-center text-white relative">
+                  <span className="text-sm font-serif italic text-stone-200">
+                    Olamiluxe
+                  </span>
+                  <div className="w-8 h-px bg-stone-600 my-1" />
+                  <span className="text-[7px] tracking-wider text-stone-400 uppercase">
+                    Fabric Collection
+                  </span>
+                </div>
+                <div className="p-2 bg-white">
+                  <span className="text-[10px] font-semibold text-stone-900 truncate block group-hover:text-indigo-600">
+                    Script Wordmark Kit
+                  </span>
+                  <span className="text-[9px] text-stone-500">Edited 9 months ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-stone-200 flex items-center justify-between text-[10px] text-stone-500">
+            <span className="font-mono text-stone-600">canva.com/projects/olamiluxe-fabrics</span>
+            <span className="text-indigo-600 font-medium">Verified Canva Brand Collateral</span>
+          </div>
+        </div>
+      </div>
+    );
+
     case 'linkedin-analytics':
       return (
         <div className={`w-full ${isModal ? 'p-6' : 'p-4'} bg-white text-stone-900 rounded-xl border border-stone-200 font-sans shadow-2xs flex flex-col justify-between h-full`}>

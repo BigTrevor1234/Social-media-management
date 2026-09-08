@@ -12,6 +12,11 @@ export const WorkSamplesGallery: React.FC = () => {
   const categories = [
     { id: 'all', label: 'All Artifacts', count: workSamplesData.length },
     {
+      id: 'systems',
+      label: 'Workspaces & Automations',
+      count: workSamplesData.filter((s) => s.category === 'systems').length,
+    },
+    {
       id: 'analytics',
       label: 'Performance Dashboards',
       count: workSamplesData.filter((s) => s.category === 'analytics').length,
@@ -23,7 +28,7 @@ export const WorkSamplesGallery: React.FC = () => {
     },
     {
       id: 'strategy',
-      label: 'Strategy & Frameworks',
+      label: 'Strategy & Brand Kits',
       count: workSamplesData.filter((s) => s.category === 'strategy').length,
     },
   ];
@@ -105,8 +110,8 @@ export const WorkSamplesGallery: React.FC = () => {
                 </div>
 
                 {/* Platform Tag */}
-                <div className="absolute top-5 left-5 z-10 flex items-center gap-2">
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-bold bg-white/95 text-stone-900 shadow-xs border border-stone-200/80 backdrop-blur-xs">
+                <div className="absolute bottom-5 right-5 z-10 flex items-center gap-2 pointer-events-none">
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-bold bg-white/95 text-stone-900 shadow-sm border border-stone-200/80 backdrop-blur-xs">
                     {sample.platform}
                   </span>
                 </div>

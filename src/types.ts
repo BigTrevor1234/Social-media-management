@@ -3,7 +3,7 @@ export interface WorkSample {
   title: string;
   caption: string;
   platform: string;
-  category: 'analytics' | 'strategy' | 'calendar' | 'all';
+  category: 'analytics' | 'strategy' | 'calendar' | 'systems' | 'all';
   imageFileName: string;
   highlightMetric?: string;
   metricLabel?: string;
@@ -51,7 +51,13 @@ export interface StrategicFramework {
 export interface ToolCategory {
   categoryName: string;
   description: string;
-  tools: { name: string; role: string; icon?: string }[];
+  tools: {
+    name: string;
+    role: string;
+    iconId?: string;
+    badgeColor?: string;
+    tag?: string;
+  }[];
 }
 
 export interface Certification {

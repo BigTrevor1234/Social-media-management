@@ -42,7 +42,7 @@ export const aboutData = {
   subheading: "About Sheriff Opatola",
   intro: "Turning social feeds into memorable brand assets.",
   paragraphs: [
-    "I'm a freelance social media manager and content strategist working with founders and brand owners who want their online presence to turn into something people actually remember, not just another feed to scroll past. My background includes working closely with skincare and beauty founders, which sharpened my eye for building trust and credibility in highly visual, competitive markets.",
+    "I'm a freelance social media manager and content strategist working with founders and brand owners who want their online presence to turn into something people actually remember, not just another feed to scroll past. I've worked closely with a skincare and beauty founder, going deep enough to understand how trust and credibility actually get built in highly visual, competitive markets.",
     "My approach sits at the intersection of content strategy, audience psychology, and personal branding. I don't just plan what to post, I dig into who your audience is, what actually makes them stop scrolling, and how to translate that into a voice that feels unmistakably yours across every platform. Whether it's a product-based brand or a personal name people are learning to trust, that means understanding the difference between content that just looks nice and content that actually builds credibility in a crowded, skeptical market.",
     "If you're a founder who's tired of posting into the void and wants a presence that's strategic, consistent, and genuinely you, that's where I come in."
   ],
@@ -215,6 +215,110 @@ export const processData: ProcessStep[] = [
 ];
 
 export const workSamplesData: WorkSample[] = [
+  {
+    id: "asana-workspace",
+    title: "Asana Client Management Workspace",
+    caption: "Live operations hub for GlowSkincare with tasks directly assigned to Sheriff Opatola: Instagram DM triage, competitor research, and post scheduling.",
+    platform: "Asana",
+    category: "systems",
+    imageFileName: "asana-workspace1.jpg",
+    highlightMetric: "On Track",
+    metricLabel: "GlowSkincare Operations",
+    details: {
+      overview: "Live client management workspace from the GlowSkincare project in Asana with Sheriff Opatola (SO) as lead operator. Shows active tracking of weekly business meetings, customer Instagram DM replies (completed), skincare competitor research, 5 scheduled posts (May 13–15), business email triage, and product inventory updates.",
+      keyDeliverables: [
+        "Direct client accountability: Sheriff Opatola assigned across primary creative & operational streams",
+        "Completed customer engagement: Instagram DM inbox monitoring and community response",
+        "Integrated sprint tracking: Content scheduling, competitive research, and inventory coordination",
+        "Clear priority tagging across Low, Medium, and High deliverables with active status updates"
+      ],
+      metricsOrResults: [
+        { label: "Project Status", value: "On Track" },
+        { label: "Assigned Lead", value: "Sheriff Opatola (SO)" },
+        { label: "Core Scope", value: "Content, DMs & Ops" },
+        { label: "Workflow Cadence", value: "Weekly Sprints" }
+      ],
+      toolsUsed: ["Asana Workspace", "Instagram DM Management", "Competitor Research Engine"]
+    }
+  },
+  {
+    id: "airtable-outreach",
+    title: "Airtable Lead Outreach & Sequences CRM",
+    caption: "Structured relational base tracking 195+ verified leads, multi-touch sequence stages, automated email fields, and custom personalization tokens.",
+    platform: "Airtable",
+    category: "systems",
+    imageFileName: "Aitable-Screenshot.jpg",
+    highlightMetric: "195+ Records",
+    metricLabel: "Outreach Database",
+    details: {
+      overview: "A dedicated cold email outreach base engineered in Airtable to manage multi-step sequence stages, lead categorization, automated email triggers, and individualized personalization parameters with clean schema integrity.",
+      keyDeliverables: [
+        "Relational grid architecture managing 195+ active outreach records",
+        "Dynamic token tracking: 'Personalization Used' and 'Automated Email' validation",
+        "Structured interface views for seamless lead status triage and follow-up synchronization",
+        "Multi-table linking connecting raw leads directly to outreach sequence stages"
+      ],
+      metricsOrResults: [
+        { label: "Active Records", value: "195 Leads" },
+        { label: "Sequence Views", value: "Outreach & Leads" },
+        { label: "Field Validation", value: "Automated Triggers" },
+        { label: "Pipeline Stage", value: "Live Sequences" }
+      ],
+      toolsUsed: ["Airtable Database", "Automated Sequence Logic", "Cold Outreach CRM"]
+    }
+  },
+  {
+    id: "zapier-workflow",
+    title: "Autonomous Workflow Automation Engine",
+    caption: "Complex visual automation graph executing scheduled cron triggers, loop iterators, parallel HTTP webhooks, and automatic CRM synchronization.",
+    platform: "Zapier & n8n",
+    category: "systems",
+    imageFileName: "Zappier Workflow.jpg",
+    highlightMetric: "Multi-Branch",
+    metricLabel: "Automated Pipeline",
+    details: {
+      overview: "Visual workflow automation engine built to eliminate repetitive manual processes. Features autonomous cron triggers, batch loops, parallel HTTP webhooks (Google, LinkedIn, Apollo APIs), data normalization, and automatic record creation in destination databases.",
+      keyDeliverables: [
+        "Autonomous cron trigger & scheduled batch processing",
+        "Parallel API routing with webhooks, waiting states, and data standardization",
+        "Zero-manual-touch handoff from lead discovery directly into client CRM databases",
+        "Robust error-handling branches ensuring zero broken webhook pipelines"
+      ],
+      metricsOrResults: [
+        { label: "Pipeline Nodes", value: "14+ Logic Nodes" },
+        { label: "Data Routing", value: "3 Parallel API Branches" },
+        { label: "Execution Type", value: "Fully Autonomous" },
+        { label: "Time Saved", value: "15+ Hours / Week" }
+      ],
+      toolsUsed: ["n8n / Zapier Workflow Engine", "HTTP Webhooks & REST APIs", "Autonomous CRM Sync"]
+    }
+  },
+  {
+    id: "canva-brand-assets",
+    title: "Canva Brand Kit & Packaging Design Hub",
+    caption: "Organized visual asset library and brand design workspace developing luxury monochrome identity assets for Olamiluxe Fabrics.",
+    platform: "Canva",
+    category: "strategy",
+    imageFileName: "Canva-Screenshot .jpg",
+    highlightMetric: "Brand Kit",
+    metricLabel: "Visual Identity System",
+    details: {
+      overview: "Centralized Canva workspace organizing multi-format graphic assets, typography hierarchies, and luxury fabric identity collateral for Olamiluxe Fabrics, ensuring consistent brand recognition across digital and physical touchpoints.",
+      keyDeliverables: [
+        "Minimalist black-and-white luxury branding systems and tag design mockups",
+        "Modular folder hierarchy separating packaging, digital covers, and marketing collateral",
+        "Reusable templates ensuring immediate visual consistency across channels",
+        "Streamlined asset export pipelines ready for print and social distribution"
+      ],
+      metricsOrResults: [
+        { label: "Design System", value: "Monochrome Minimalist" },
+        { label: "Asset Scope", value: "Logos, Tags & Social" },
+        { label: "Brand Vertical", value: "Luxury Fabrics / E-Commerce" },
+        { label: "Asset Turnaround", value: "< 24 Hours" }
+      ],
+      toolsUsed: ["Canva Pro Brand Kits", "Typography Systems", "Packaging & Identity Layouts"]
+    }
+  },
   {
     id: "linkedin-analytics",
     title: "LinkedIn Analytics Dashboard",
@@ -530,33 +634,44 @@ export const frameworksData: StrategicFramework[] = [
 
 export const toolsData: ToolCategory[] = [
   {
-    categoryName: "Social Media Platforms",
-    description: "Channels managed with native optimization and tailored platform strategies.",
+    categoryName: "Social Media & Publishing Platforms",
+    description: "Channels managed with native optimization, cross-account scheduling, and tailored platform strategies.",
     tools: [
-      { name: "Instagram", role: "Reels, Carousels, Stories & Community" },
-      { name: "TikTok", role: "Short-form video storytelling & education" },
-      { name: "LinkedIn", role: "B2B brand authority & industry positioning" },
-      { name: "X (Twitter)", role: "Real-time threads & community dialogue" },
-      { name: "Facebook", role: "Community groups & page insights" }
+      { name: "Instagram", role: "Reels, Carousels, Stories & Community", tag: "Primary Channel" },
+      { name: "TikTok", role: "Short-form video storytelling & education", tag: "High Reach" },
+      { name: "LinkedIn", role: "B2B brand authority & industry positioning", tag: "Thought Leadership" },
+      { name: "X (Twitter)", role: "Real-time threads & community dialogue", tag: "Engagement" },
+      { name: "Facebook", role: "Community groups & page insights", tag: "Audience Base" },
+      { name: "Meta Business Suite", role: "Unified multi-account scheduling & inbox management", tag: "Publishing" },
+      { name: "Buffer", role: "Multi-channel post distribution & queue automation", tag: "Scheduling" }
     ]
   },
   {
     categoryName: "Creative & Content Production",
-    description: "High-end visual curation, video editing, and graphic design tools.",
+    description: "High-end visual curation, short-form video editing, and editorial graphic design tools.",
     tools: [
-      { name: "CapCut", role: "Short-form video pacing, sound & captions" },
-      { name: "Canva", role: "Editorial carousel layouts & brand kits" }
+      { name: "CapCut", role: "Short-form video pacing, sound & captions", tag: "Video Editing" },
+      { name: "Canva", role: "Editorial carousel layouts & brand kits", tag: "Visual Design" },
+      { name: "InShot", role: "Mobile-first video editing, reel clipping & audio sync", tag: "Mobile Production" }
     ]
   },
   {
     categoryName: "Systems, Workflow & Automation",
-    description: "Technical virtual assistant infrastructure to maintain organization and zero chaos.",
+    description: "Technical virtual assistant infrastructure to maintain organization, asset visibility, and zero chaos.",
     tools: [
-      { name: "Notion", role: "Centralized content hubs & editorial calendars" },
-      { name: "Airtable", role: "Asset databases & campaign tracking" },
-      { name: "Zapier", role: "Automated notification & handoff pipelines" },
-      { name: "Google Workspace", role: "Collaborative docs, spreadsheets & drive assets" },
-      { name: "Web-Based Onboarding Portal", role: "Seamless client kickoff & asset intake" }
+      { name: "Notion", role: "Centralized content hubs & editorial calendars", tag: "Core Hub" },
+      { name: "Airtable", role: "Asset databases & campaign tracking", tag: "Data Library" },
+      { name: "Trello", role: "Visual Kanban boards & production workflow stages", tag: "Sprint Boards" },
+      { name: "Zapier", role: "Automated notification & handoff pipelines", tag: "Automations" },
+      { name: "Google Workspace", role: "Collaborative docs, spreadsheets & drive assets", tag: "Cloud Assets" }
+    ]
+  },
+  {
+    categoryName: "Analytics, Trends & Market Intelligence",
+    description: "Data-driven research tools to analyze audience behavior, search interest, and performance conversion.",
+    tools: [
+      { name: "Google Analytics", role: "Traffic attribution, referral pathways & conversions", tag: "Web Analytics" },
+      { name: "Google Trends", role: "Real-time search interest, seasonal curves & topic discovery", tag: "Trend Research" }
     ]
   }
 ];

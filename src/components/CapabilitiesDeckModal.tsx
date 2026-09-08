@@ -162,9 +162,10 @@ export const CapabilitiesDeckModal: React.FC<CapabilitiesDeckModalProps> = ({ is
                 Ecosystem & Software Stack
               </h2>
               <p className="text-[11px] text-stone-600 leading-relaxed">
-                <strong>Platforms:</strong> Instagram, TikTok, LinkedIn, X, Facebook<br />
-                <strong>Production:</strong> CapCut, Canva<br />
-                <strong>Automation & VA:</strong> Notion, Airtable, Zapier, Google Workspace
+                <strong>Platforms & Publishing:</strong> Instagram, TikTok, LinkedIn, X, Facebook, Meta Business Suite, Buffer<br />
+                <strong>Production:</strong> CapCut, Canva, InShot<br />
+                <strong>Automation & Workflows:</strong> Notion, Airtable, Trello, Zapier, Google Workspace<br />
+                <strong>Analytics & Insights:</strong> Google Analytics, Google Trends
               </p>
             </div>
 
